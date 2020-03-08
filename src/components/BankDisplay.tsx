@@ -25,8 +25,9 @@ export const BankDisplay: React.FC<{ balance: number; level: number }> = ({
           <Typography gutterBottom variant="h5" component="h2">
             You have{" "}
             {balance.toLocaleString("en-GB", {
-              style: "currency",
-              currency: "GBP"
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true
             })}{" "}
             coins
           </Typography>

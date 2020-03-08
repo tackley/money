@@ -13,14 +13,14 @@ export interface Recipe {
   craftableIn: string[];
 }
 
-export const recipies: Recipe[] = [
+export const recipes: Recipe[] = [
   {
     name: "Smelt Iron Ore",
     availableFromLevel: 1,
     input: [{ item: "Iron Ore", quantity: 1 }],
     output: [{ item: "Iron Plate", quantity: 1 }],
     baseCraftingTime: 7,
-    craftableIn: ["Furnace 1", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2"]
   },
 
   {
@@ -29,7 +29,7 @@ export const recipies: Recipe[] = [
     input: [{ item: "Iron Plate", quantity: 5 }],
     output: [{ item: "Steel Plate", quantity: 1 }],
     baseCraftingTime: 23,
-    craftableIn: ["Furnace 1", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2"]
   },
   {
     name: "Smelt Copper Ore",
@@ -37,7 +37,7 @@ export const recipies: Recipe[] = [
     input: [{ item: "Copper Ore", quantity: 5 }],
     output: [{ item: "Copper Plate", quantity: 1 }],
     baseCraftingTime: 7,
-    craftableIn: ["Furnace 1", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2"]
   },
   {
     name: "Smelt Stone",
@@ -45,7 +45,7 @@ export const recipies: Recipe[] = [
     input: [{ item: "Stone", quantity: 3 }],
     output: [{ item: "Stone Brick", quantity: 2 }],
     baseCraftingTime: 15,
-    craftableIn: ["Furnace 1", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2"]
   },
   {
     name: "Liquify Oil",
@@ -53,6 +53,6 @@ export const recipies: Recipe[] = [
     input: [{ item: "Hard Oil", quantity: 2 }],
     output: [{ item: "Oil", quantity: 1 }],
     baseCraftingTime: 27,
-    craftableIn: ["Liquid Handler 1", "Liquid Handler 2"]
+    craftableIn: ["Liquid Handler", "Liquid Handler 2"]
   }
 ];

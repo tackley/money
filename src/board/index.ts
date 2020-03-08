@@ -1,5 +1,5 @@
 import { Item, Machine } from "../economy/items";
-import { Recipe } from "../economy/recipies";
+import { Recipe } from "../economy/recipes";
 
 export interface InventoryItem {
   item: Item;

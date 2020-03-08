@@ -85,7 +85,7 @@ const items: Item[] = [
 const machines: Machine[] = [
   {
     type: "machine",
-    name: "Furnace 1",
+    name: "Furnace",
     inShopFromLevel: 1,
     price: { buy: 20, sell: 15 },
     craftingSpeedMultiplier: 1
@@ -99,7 +99,7 @@ const machines: Machine[] = [
   },
   {
     type: "machine",
-    name: "Liquid Handler 1",
+    name: "Liquid Handler",
     inShopFromLevel: 5,
     price: { buy: 450, sell: 200 },
     craftingSpeedMultiplier: 1
@@ -110,6 +110,34 @@ const machines: Machine[] = [
     inShopFromLevel: 6,
     price: { buy: 1023, sell: 383 },
     craftingSpeedMultiplier: 2
+  },
+  {
+    type: "machine",
+    name: "Maker",
+    inShopFromLevel: 2,
+    price: { buy: 23, sell: 15 },
+    craftingSpeedMultiplier: 1
+  },
+  {
+    type: "machine",
+    name: "Maker 2",
+    inShopFromLevel: 3,
+    price: { buy: 95, sell: 63 },
+    craftingSpeedMultiplier: 2
+  },
+  {
+    type: "machine",
+    name: "Maker 3",
+    inShopFromLevel: 4,
+    price: { buy: 223, sell: 127 },
+    craftingSpeedMultiplier: 4
+  },
+  {
+    type: "machine",
+    name: "Maker 4",
+    inShopFromLevel: 6,
+    price: { buy: 767, sell: 255 },
+    craftingSpeedMultiplier: 6
   }
 ];
 export function getShopContentsForLevel(
