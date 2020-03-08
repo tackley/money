@@ -1,5 +1,5 @@
-export interface BaseItem {
-  type: "item" | "machine";
+export interface Item {
+  type: "item";
   name: string;
   inShopFromLevel: number;
   price: {
@@ -8,13 +8,21 @@ export interface BaseItem {
   };
 }
 
-export interface Item extends BaseItem {
-  type: "item";
+export interface Machine {
+  type: "machine";
+  name: string;
+  inShopFromLevel: number;
+  price: {
+    buy: number;
+    sell: number;
+  };
+  craftingSpeedMultiplier: number;
 }
 
-export interface Machine extends BaseItem {
-  type: "machine";
-  craftingSpeedMultiplier: number;
+export type BaseItem = Item | Machine;
+
+export function isMachine(i: BaseItem): i is Machine {
+  return i.type === "machine";
 }
 
 const items: Item[] = [

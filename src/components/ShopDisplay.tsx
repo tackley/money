@@ -1,22 +1,27 @@
-import React from "react";
-import { Board } from "../board";
+import React, { Dispatch } from "react";
+import { Board, BoardAction } from "../board";
 import { getShopContentsForLevel, BaseItem } from "../economy/items";
 import {
   Card,
   CardActionArea,
-  CardMedia,
   CardContent,
   Typography,
   CardActions,
   Button,
   Box
 } from "@material-ui/core";
+import { buyItem } from "../board/actions";
 
 interface Props {
   board: Pick<Board, "money" | "level">;
+  applyAction: Dispatch<BoardAction>;
 }
 
-const ShopItemDisplay: React.FC<{ item: BaseItem }> = ({ item }) => (
+const ShopItemDisplay: React.FC<{
+  item: BaseItem;
+  balance: number;
+  applyAction: Dispatch<BoardAction>;
+}> = ({ item, balance, applyAction }) => (
   <Card>
     <CardActionArea>
       <CardContent>
@@ -28,7 +33,12 @@ const ShopItemDisplay: React.FC<{ item: BaseItem }> = ({ item }) => (
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button
+          size="small"
+          color="primary"
+          disabled={item.price.buy > balance}
+          onClick={() => applyAction(buyItem(item, 1))}
+        >
           Buy
         </Button>
       </CardActions>
@@ -36,7 +46,7 @@ const ShopItemDisplay: React.FC<{ item: BaseItem }> = ({ item }) => (
   </Card>
 );
 
-export const ShopDisplay: React.FC<Props> = ({ board }) => {
+export const ShopDisplay: React.FC<Props> = ({ board, applyAction }) => {
   const shopContents = getShopContentsForLevel(board.level);
 
   const items = [...shopContents.items, ...shopContents.machines];
@@ -44,8 +54,12 @@ export const ShopDisplay: React.FC<Props> = ({ board }) => {
   return (
     <React.Fragment>
       {items.map(i => (
-        <Box padding={1}>
-          <ShopItemDisplay item={i}></ShopItemDisplay>
+        <Box key={i.name} padding={1}>
+          <ShopItemDisplay
+            item={i}
+            balance={board.money}
+            applyAction={applyAction}
+          ></ShopItemDisplay>
         </Box>
       ))}
     </React.Fragment>

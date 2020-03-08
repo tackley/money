@@ -28,3 +28,5 @@ export function createNewBoard(): Board {
     machines: []
   };
 }
+
+export type BoardAction = (b: Board) => Board;

@@ -4,7 +4,7 @@ import { Board, createNewBoard } from "./board";
 import { BoardDisplay } from "./components/BoardDisplay";
 
 function App() {
-  const [board, setBoard] = React.useState<Board | null>();
+  const [board, setBoard] = React.useState<Board>(createNewBoard());
 
   if (!board) {
     return (
@@ -18,7 +18,7 @@ function App() {
     );
   }
 
-  return <BoardDisplay board={board} />;
+  return <BoardDisplay board={board} applyAction={setBoard} />;
 }
 
 export default App;
