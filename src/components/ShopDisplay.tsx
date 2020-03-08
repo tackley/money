@@ -1,5 +1,5 @@
 import React, { Dispatch } from "react";
-import { Board, BoardAction } from "../board";
+import { Board } from "../board";
 import { getShopContentsForLevel, BaseItem } from "../economy/items";
 import {
   Card,
@@ -10,7 +10,7 @@ import {
   Button,
   Box
 } from "@material-ui/core";
-import { buyItem } from "../board/actions";
+import { buyItem, BoardAction } from "../board/actions";
 
 interface Props {
   board: Pick<Board, "money" | "level">;

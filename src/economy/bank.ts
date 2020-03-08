@@ -1,5 +1,3 @@
-
-
 export const bank = {
-    interestRatePerSecond: 0.001
-}
+  interestRatePerTick: 0.001
+};

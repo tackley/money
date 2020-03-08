@@ -1,11 +1,11 @@
 import { Board } from ".";
 import { BaseItem, isMachine } from "../economy/items";
 import produce from "immer";
+import { bank } from "../economy/bank";
 
-export function buyItem(
-  item: BaseItem,
-  quantity: number
-): (b: Readonly<Board>) => Board {
+export type BoardAction = (b: Readonly<Board>) => Board;
+
+export function buyItem(item: BaseItem, quantity: number): BoardAction {
   return produce((draft: Board) => {
     const value = item.price.buy * quantity;
     draft.money -= value;
@@ -26,8 +26,14 @@ export function buyItem(
   });
 }
 
-export function addMoreMoney(amount: number): (b: Board) => Board {
+export function addMoreMoney(amount: number): BoardAction {
   return produce((draft: Board) => {
     draft.money += amount;
+  });
+}
+
+export function gameTick(): BoardAction {
+  return produce((draft: Board) => {
+    draft.money += draft.money * bank.interestRatePerTick;
   });
 }

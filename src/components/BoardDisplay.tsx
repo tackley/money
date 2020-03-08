@@ -1,9 +1,11 @@
 import React, { Dispatch } from "react";
-import { Board, BoardAction } from "../board";
+import { Board } from "../board";
 import { Grid, Toolbar, Typography, AppBar, Button } from "@material-ui/core";
 import { BankDisplay } from "./BankDisplay";
 import { ShopDisplay } from "./ShopDisplay";
-import { addMoreMoney } from "../board/actions";
+import { InventoryDisplay } from "./InventoryDisplay";
+import { MachineDisplay } from "./MachineDisplay";
+import { BoardAction, gameTick } from "../board/actions";
 
 interface BoardDisplayProps {
   board: Board;
@@ -15,7 +17,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
   applyAction
 }) => {
   const moreMoney = () => {
-    applyAction(addMoreMoney(10));
+    applyAction(gameTick());
   };
   return (
     <Grid container spacing={2}>
@@ -23,7 +25,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
         <BankDisplay balance={board.money} level={board.level} />
 
         <Button size="small" color="primary" onClick={moreMoney}>
-          More Money
+          Game Tick
         </Button>
       </Grid>
       <Grid item xs={3}>
@@ -32,7 +34,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
             <Typography variant="subtitle2">Your Machines</Typography>
           </Toolbar>
         </AppBar>
-        <pre>{JSON.stringify(board.machines, null, 2)}</pre>
+        <MachineDisplay board={board} applyAction={applyAction} />
       </Grid>
       <Grid item xs={3}>
         <AppBar position="relative">
@@ -40,7 +42,8 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
             <Typography variant="subtitle2">Your Inventory</Typography>
           </Toolbar>
         </AppBar>
-        <pre>{JSON.stringify(board.inventory, null, 2)}</pre>
+
+        <InventoryDisplay board={board} applyAction={applyAction} />
       </Grid>
       <Grid item xs={3}>
         <AppBar position="relative">

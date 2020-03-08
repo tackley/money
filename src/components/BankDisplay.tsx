@@ -23,7 +23,12 @@ export const BankDisplay: React.FC<{ balance: number; level: number }> = ({
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            You have {balance} coins
+            You have{" "}
+            {balance.toLocaleString("en-GB", {
+              style: "currency",
+              currency: "GBP"
+            })}{" "}
+            coins
           </Typography>
           <Typography gutterBottom variant="subtitle1">
             Level {level}
