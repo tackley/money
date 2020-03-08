@@ -2,6 +2,7 @@ import React from "react";
 import { Board } from "../board";
 import { Grid, Toolbar, Typography, AppBar } from "@material-ui/core";
 import { BankDisplay } from "./BankDisplay";
+import { ShopDisplay } from "./ShopDisplay";
 
 interface BoardDisplayProps {
   board: Board;
@@ -11,7 +12,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({ board }) => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={3}>
-        <BankDisplay balance={board.money} />
+        <BankDisplay balance={board.money} level={board.level} />
       </Grid>
       <Grid item xs={3}>
         <AppBar position="relative">
@@ -33,6 +34,8 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({ board }) => {
             <Typography variant="subtitle2">Shop</Typography>
           </Toolbar>
         </AppBar>
+
+        <ShopDisplay board={board} />
       </Grid>
     </Grid>
   );

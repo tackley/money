@@ -7,7 +7,10 @@ import {
   Typography
 } from "@material-ui/core";
 
-export const BankDisplay: React.FC<{ balance: number }> = ({ balance }) => {
+export const BankDisplay: React.FC<{ balance: number; level: number }> = ({
+  balance,
+  level
+}) => {
   return (
     <Card>
       <CardActionArea>
@@ -21,6 +24,9 @@ export const BankDisplay: React.FC<{ balance: number }> = ({ balance }) => {
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             You have {balance} coins
+          </Typography>
+          <Typography gutterBottom variant="subtitle1">
+            Level {level}
           </Typography>
         </CardContent>
       </CardActionArea>
