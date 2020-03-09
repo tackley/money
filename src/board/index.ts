@@ -1,4 +1,4 @@
-import { Item, Machine } from "../economy/items";
+import { Machine } from "../economy/items";
 import { Recipe } from "../economy/recipes";
 
 export interface InventoryItem {
@@ -12,6 +12,7 @@ export interface ActiveMachine {
   machine: Machine;
   currentRecipe?: Recipe;
   inHopper: InventoryItem[];
+  hopperFull: boolean;
   percentComplete: number; // 0 to 100
 }
 

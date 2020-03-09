@@ -8,7 +8,9 @@ import {
   Select,
   MenuItem,
   makeStyles,
-  createStyles
+  createStyles,
+  LinearProgress,
+  Box
 } from "@material-ui/core";
 import { BoardAction } from "../board/actions";
 import { getPossibleRecipes } from "../economy/utils";
@@ -69,6 +71,7 @@ export const MachineDisplay: React.FC<Props> = ({ board, applyAction }) => {
     applyAction(
       produce((b: Board) => {
         b.machines[machineIdx].currentRecipe = recipe;
+        b.machines[machineIdx].hopperFull = false;
       })
     );
   };
@@ -88,9 +91,14 @@ export const MachineDisplay: React.FC<Props> = ({ board, applyAction }) => {
               selected={m.currentRecipe}
               onChange={handleChange(idx)}
             />
-            <Typography variant="body2" component="span">
-              Hopper: {JSON.stringify(m.inHopper)}
-            </Typography>
+
+            <Box marginY={2}>
+              <LinearProgress
+                variant="determinate"
+                value={m.percentComplete}
+                color={m.hopperFull ? "primary" : "secondary"}
+              />
+            </Box>
           </li>
         );
       })}
