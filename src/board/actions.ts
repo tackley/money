@@ -63,6 +63,20 @@ export function buyItem(item: BaseItem, quantity: number): BoardAction {
   });
 }
 
+export function sellItem(item: BaseItem, quantity: number): BoardAction {
+  return produce((draft: Board) => {
+    const value = item.price.sell * quantity;
+    draft.money += value;
+
+    if (isMachine(item)) {
+      // draft.machines;
+      alert("Cannot sell machines yet!");
+    } else {
+      removeFromInventoryBag(draft.inventory, { item: item.name, quantity });
+    }
+  });
+}
+
 export function addMoreMoney(amount: number): BoardAction {
   return produce((draft: Board) => {
     draft.money += amount;

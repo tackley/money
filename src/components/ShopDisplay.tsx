@@ -8,7 +8,8 @@ import {
   Typography,
   CardActions,
   Button,
-  Box
+  Box,
+  CardMedia
 } from "@material-ui/core";
 import { buyItem, BoardAction } from "../board/actions";
 
@@ -21,30 +22,35 @@ const ShopItemDisplay: React.FC<{
   item: BaseItem;
   balance: number;
   applyAction: Dispatch<BoardAction>;
-}> = ({ item, balance, applyAction }) => (
-  <Card>
-    <CardActionArea>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {item.name}
-        </Typography>
-        <Typography gutterBottom variant="subtitle1">
-          {item.price.buy} coins
-        </Typography>
-      </CardContent>
-    </CardActionArea>
-    <CardActions>
-      <Button
-        size="small"
-        color="primary"
-        disabled={item.price.buy > balance}
-        onClick={() => applyAction(buyItem(item, 1))}
-      >
-        Buy
-      </Button>
-    </CardActions>
-  </Card>
-);
+}> = ({ item, balance, applyAction }) => {
+  return (
+    <Card>
+      <CardActionArea>
+        {item.image && (
+          <CardMedia component="img" height="200" image={item.image} />
+        )}
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {item.name}
+          </Typography>
+          <Typography gutterBottom variant="subtitle1">
+            {item.price.buy} coins
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button
+          size="small"
+          color="primary"
+          disabled={item.price.buy > balance}
+          onClick={() => applyAction(buyItem(item, 1))}
+        >
+          Buy
+        </Button>
+      </CardActions>
+    </Card>
+  );
+};
 
 export const ShopDisplay: React.FC<Props> = ({ board, applyAction }) => {
   const shopContents = getShopContentsForLevel(board.level);

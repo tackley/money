@@ -1,6 +1,7 @@
 export interface Item {
   type: "item";
   name: string;
+  image?: string;
   inShopFromLevel: number;
   price: {
     buy: number;
@@ -11,6 +12,8 @@ export interface Item {
 export interface Machine {
   type: "machine";
   name: string;
+  image?: string;
+
   inShopFromLevel: number;
   price: {
     buy: number;
@@ -21,7 +24,6 @@ export interface Machine {
 
 export type BaseItem = Item | Machine;
 
-
 export function isMachine(i: BaseItem): i is Machine {
   return i.type === "machine";
 }
@@ -30,6 +32,8 @@ const items: Item[] = [
   {
     type: "item",
     name: "Iron Ore",
+    image: require("../images/bethan_iron.png"),
+
     inShopFromLevel: 1,
     price: { buy: 8, sell: 6 }
   },
@@ -42,6 +46,8 @@ const items: Item[] = [
   {
     type: "item",
     name: "Copper Ore",
+    image: require("../images/bethan_copper.png"),
+
     inShopFromLevel: 1,
     price: { buy: 10, sell: 9 }
   },
@@ -105,6 +111,7 @@ const machines: Machine[] = [
   {
     type: "machine",
     name: "Furnace",
+    image: require("../images/bethan_furnace.png"),
     inShopFromLevel: 1,
     price: { buy: 20, sell: 15 },
     craftingSpeedMultiplier: 1
@@ -173,6 +180,7 @@ const machines: Machine[] = [
     craftingSpeedMultiplier: 3
   }
 ];
+
 export function getShopContentsForLevel(
   level: number
 ): { items: Item[]; machines: Machine[] } {
@@ -182,4 +190,8 @@ export function getShopContentsForLevel(
   };
 }
 
-
+export function findItemByName(name: string): Item {
+  const i = items.find(i => i.name === name);
+  if (!i) throw new Error("cannot find item with name " + name);
+  return i;
+}
