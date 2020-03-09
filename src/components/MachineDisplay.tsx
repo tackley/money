@@ -66,8 +66,6 @@ export const RecipeDropDown: React.FC<DropDownProps> = ({
 
 export const MachineDisplay: React.FC<Props> = ({ board, applyAction }) => {
   const handleChange = (machineIdx: number) => (recipe: Recipe | undefined) => {
-    console.log("Update ", machineIdx, " to ", recipe);
-
     applyAction(
       produce((b: Board) => {
         b.machines[machineIdx].currentRecipe = recipe;
@@ -90,6 +88,9 @@ export const MachineDisplay: React.FC<Props> = ({ board, applyAction }) => {
               selected={m.currentRecipe}
               onChange={handleChange(idx)}
             />
+            <Typography variant="body2" component="span">
+              Hopper: {JSON.stringify(m.inHopper)}
+            </Typography>
           </li>
         );
       })}

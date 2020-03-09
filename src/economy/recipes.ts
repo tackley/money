@@ -34,7 +34,7 @@ export const recipes: Recipe[] = [
   {
     name: "Smelt Copper Ore",
     availableFromLevel: 1,
-    input: [{ item: "Copper Ore", quantity: 5 }],
+    input: [{ item: "Copper Ore", quantity: 1 }],
     output: [{ item: "Copper Plate", quantity: 1 }],
     baseCraftingTime: 7,
     craftableIn: ["Furnace", "Furnace 2"]
@@ -54,5 +54,28 @@ export const recipes: Recipe[] = [
     output: [{ item: "Oil", quantity: 1 }],
     baseCraftingTime: 27,
     craftableIn: ["Liquid Handler", "Liquid Handler 2"]
+  },
+  {
+    name: "Process Uranium",
+    availableFromLevel: 5,
+    input: [{ item: "Uranium", quantity: 7 }],
+    output: [{ item: "Processed Uranium", quantity: 7 }],
+    baseCraftingTime: 63,
+    craftableIn: ["Uranium Processer", "Uranium Processer 2"]
+  },
+  {
+    name: "Process Uranium (2)",
+    availableFromLevel: 5,
+    input: [{ item: "Uramium", quantity: 127 }],
+    output: [
+      {
+        item:
+          "Processed U                                                                                   ranium",
+        quantity: 127
+      },
+      { item: "Rare Uranium", quantity: 1 }
+    ],
+    baseCraftingTime: 1023,
+    craftableIn: ["Uranium Processer", "Uranium Processer 2"]
   }
 ];

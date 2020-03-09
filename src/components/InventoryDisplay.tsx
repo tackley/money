@@ -11,8 +11,8 @@ interface Props {
 export const InventoryDisplay: React.FC<Props> = ({ board, applyAction }) => (
   <List>
     {board.inventory.map(i => (
-      <ListItem key={i.item.name} button>
-        <ListItemText primary={`${i.quantity} ${i.item.name}`} />
+      <ListItem key={i.item} button>
+        <ListItemText primary={`${i.quantity} ${i.item}`} />
       </ListItem>
     ))}
   </List>

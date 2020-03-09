@@ -2,9 +2,11 @@ import { Item, Machine } from "../economy/items";
 import { Recipe } from "../economy/recipes";
 
 export interface InventoryItem {
-  item: Item;
+  item: string;
   quantity: number;
 }
+
+export type InventoryItemBag = InventoryItem[];
 
 export interface ActiveMachine {
   machine: Machine;

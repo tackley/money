@@ -32,17 +32,17 @@ const ShopItemDisplay: React.FC<{
           {item.price.buy} coins
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button
-          size="small"
-          color="primary"
-          disabled={item.price.buy > balance}
-          onClick={() => applyAction(buyItem(item, 1))}
-        >
-          Buy
-        </Button>
-      </CardActions>
     </CardActionArea>
+    <CardActions>
+      <Button
+        size="small"
+        color="primary"
+        disabled={item.price.buy > balance}
+        onClick={() => applyAction(buyItem(item, 1))}
+      >
+        Buy
+      </Button>
+    </CardActions>
   </Card>
 );
 

@@ -21,6 +21,7 @@ export interface Machine {
 
 export type BaseItem = Item | Machine;
 
+
 export function isMachine(i: BaseItem): i is Machine {
   return i.type === "machine";
 }
@@ -79,6 +80,24 @@ const items: Item[] = [
     name: "Oil",
     inShopFromLevel: 7,
     price: { buy: 234, sell: 141 }
+  },
+  {
+    type: "item",
+    name: "Uranium Ore",
+    inShopFromLevel: 5,
+    price: { buy: 191, sell: 127 }
+  },
+  {
+    type: "item",
+    name: "Prossesed Uranium",
+    inShopFromLevel: 7,
+    price: { buy: 547, sell: 255 }
+  },
+  {
+    type: "item",
+    name: "Rare Uranium",
+    inShopFromLevel: 8,
+    price: { buy: 8191, sell: 4095 }
   }
 ];
 
@@ -138,6 +157,20 @@ const machines: Machine[] = [
     inShopFromLevel: 6,
     price: { buy: 767, sell: 255 },
     craftingSpeedMultiplier: 6
+  },
+  {
+    type: "machine",
+    name: "Uranium Processer",
+    inShopFromLevel: 5,
+    price: { buy: 1023, sell: 511 },
+    craftingSpeedMultiplier: 1
+  },
+  {
+    type: "machine",
+    name: "Uranium Processer 2",
+    inShopFromLevel: 7,
+    price: { buy: 8191, sell: 4095 },
+    craftingSpeedMultiplier: 3
   }
 ];
 export function getShopContentsForLevel(
@@ -148,3 +181,5 @@ export function getShopContentsForLevel(
     machines: machines.filter(i => i.inShopFromLevel <= level)
   };
 }
+
+
