@@ -20,40 +20,42 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
     applyAction(gameTick());
   };
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={3}>
-        <BankDisplay balance={board.money} level={board.level} />
+    <React.Fragment>
+      <Grid container spacing={2}>
+        <Grid item xs={4}>
+          <BankDisplay board={board} />
 
-        <Button size="small" color="primary" onClick={moreMoney}>
-          Game Tick
-        </Button>
-      </Grid>
-      <Grid item xs={3}>
-        <AppBar position="relative">
-          <Toolbar variant="dense">
-            <Typography variant="subtitle2">Your Machines</Typography>
-          </Toolbar>
-        </AppBar>
-        <MachineDisplay board={board} applyAction={applyAction} />
-      </Grid>
-      <Grid item xs={3}>
-        <AppBar position="relative">
-          <Toolbar variant="dense">
-            <Typography variant="subtitle2">Your Inventory</Typography>
-          </Toolbar>
-        </AppBar>
+          <Button size="small" color="primary" onClick={moreMoney}>
+            Game Tick
+          </Button>
+        </Grid>
+        <Grid item xs={4}>
+          <AppBar position="relative">
+            <Toolbar variant="dense">
+              <Typography variant="subtitle2">Your Machines</Typography>
+            </Toolbar>
+          </AppBar>
+          <MachineDisplay board={board} applyAction={applyAction} />
+        </Grid>
+        <Grid item xs={4}>
+          <AppBar position="relative">
+            <Toolbar variant="dense">
+              <Typography variant="subtitle2">Your Inventory</Typography>
+            </Toolbar>
+          </AppBar>
 
-        <InventoryDisplay board={board} applyAction={applyAction} />
-      </Grid>
-      <Grid item xs={3}>
-        <AppBar position="relative">
-          <Toolbar variant="dense">
-            <Typography variant="subtitle2">Shop</Typography>
-          </Toolbar>
-        </AppBar>
+          <InventoryDisplay board={board} applyAction={applyAction} />
+        </Grid>
+        <Grid item xs={12}>
+          <AppBar position="relative">
+            <Toolbar variant="dense">
+              <Typography variant="subtitle2">Shop</Typography>
+            </Toolbar>
+          </AppBar>
 
-        <ShopDisplay board={board} applyAction={applyAction} />
+          <ShopDisplay board={board} applyAction={applyAction} />
+        </Grid>
       </Grid>
-    </Grid>
+    </React.Fragment>
   );
 };

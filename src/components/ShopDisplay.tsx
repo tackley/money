@@ -60,7 +60,7 @@ export const ShopDisplay: React.FC<Props> = ({ board, applyAction }) => {
   return (
     <React.Fragment>
       {items.map(i => (
-        <Box key={i.name} padding={1}>
+        <Box key={i.name} padding={1} maxWidth={200}>
           <ShopItemDisplay
             item={i}
             balance={board.money}

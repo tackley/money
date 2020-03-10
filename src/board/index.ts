@@ -18,16 +18,20 @@ export interface ActiveMachine {
 
 export interface Board {
   level: number;
+  levelPercentComplete: number;
   money: number;
   inventory: InventoryItem[];
   machines: ActiveMachine[];
+  amountSold: number;
 }
 
 export function createNewBoard(): Board {
   return {
     level: 1,
+    levelPercentComplete: 0,
     money: 100,
     inventory: [],
-    machines: []
+    machines: [],
+    amountSold: 0
   };
 }

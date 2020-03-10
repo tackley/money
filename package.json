@@ -1,6 +1,6 @@
 {
   "name": "money",
-  "version": "0.1.0-alpha",
+  "version": "0.2.1-alpha",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.5",
@@ -17,6 +17,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
+    "ts-node": "^8.6.2",
     "typescript": "~3.7.2"
   },
   "scripts": {

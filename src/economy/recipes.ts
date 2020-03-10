@@ -20,7 +20,7 @@ export const recipes: Recipe[] = [
     input: [{ item: "Iron Ore", quantity: 1 }],
     output: [{ item: "Iron Plate", quantity: 1 }],
     baseCraftingTime: 7,
-    craftableIn: ["Furnace", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2", "Furnace 3"]
   },
 
   {
@@ -28,8 +28,8 @@ export const recipes: Recipe[] = [
     availableFromLevel: 2,
     input: [{ item: "Iron Plate", quantity: 5 }],
     output: [{ item: "Steel Plate", quantity: 1 }],
-    baseCraftingTime: 23,
-    craftableIn: ["Furnace", "Furnace 2"]
+    baseCraftingTime: 15,
+    craftableIn: ["Furnace", "Furnace 2", "Furnace 3"]
   },
   {
     name: "Smelt Copper Ore",
@@ -37,7 +37,7 @@ export const recipes: Recipe[] = [
     input: [{ item: "Copper Ore", quantity: 1 }],
     output: [{ item: "Copper Plate", quantity: 1 }],
     baseCraftingTime: 7,
-    craftableIn: ["Furnace", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2", "Furnace 3"]
   },
   {
     name: "Smelt Stone",
@@ -45,7 +45,7 @@ export const recipes: Recipe[] = [
     input: [{ item: "Stone", quantity: 3 }],
     output: [{ item: "Stone Brick", quantity: 2 }],
     baseCraftingTime: 15,
-    craftableIn: ["Furnace", "Furnace 2"]
+    craftableIn: ["Furnace", "Furnace 2", "Furnace 3"]
   },
   {
     name: "Liquify Oil",
@@ -58,7 +58,7 @@ export const recipes: Recipe[] = [
   {
     name: "Process Uranium",
     availableFromLevel: 5,
-    input: [{ item: "Uranium", quantity: 7 }],
+    input: [{ item: "Uranium Ore", quantity: 7 }],
     output: [{ item: "Processed Uranium", quantity: 7 }],
     baseCraftingTime: 63,
     craftableIn: ["Uranium Processer", "Uranium Processer 2"]
@@ -66,16 +66,60 @@ export const recipes: Recipe[] = [
   {
     name: "Process Uranium (2)",
     availableFromLevel: 5,
-    input: [{ item: "Uramium", quantity: 127 }],
+    input: [{ item: "Uramium Ore", quantity: 127 }],
     output: [
       {
-        item:
-          "Processed U                                                                                   ranium",
+        item: "Processed Uranium",
         quantity: 127
       },
       { item: "Rare Uranium", quantity: 1 }
     ],
     baseCraftingTime: 1023,
     craftableIn: ["Uranium Processer", "Uranium Processer 2"]
+  },
+  /*  {
+    name: "",
+    availableFromLevel: ,
+    input: [{ item: "", quantity:  }],
+    output: [ { item: "", quantity:  }],
+    baseCraftingTime: ,
+    craftableIn: ["", ""]
+  },
+  */
+  {
+    name: "Plant Wheat",
+    availableFromLevel: 2,
+    input: [],
+    output: [{ item: "Wheat", quantity: 1 }],
+    baseCraftingTime: 31,
+    craftableIn: ["Farm", "Mechanized Farm"]
+  },
+  {
+    name: "Farm Chicken",
+    availableFromLevel: 2,
+    input: [],
+    output: [{ item: "Egg", quantity: 1 }],
+    baseCraftingTime: 63,
+    craftableIn: ["Farm", "Mechanized Farm"]
+  },
+  {
+    name: "Make Flour",
+    availableFromLevel: 2,
+    input: [],
+    output: [{ item: "Flour", quantity: 1 }],
+    baseCraftingTime: 31,
+    craftableIn: ["Farm", "Mechanized Farm"]
+  },
+  {
+    name: "Bake A Cake!",
+    availableFromLevel: 3,
+    input: [
+      { item: "Flour", quantity: 5 },
+      { item: "Egg", quantity: 5 },
+      { item: "Wheat", quantity: 10 }
+    ],
+    output: [{ item: "Cake", quantity: 1 }],
+    baseCraftingTime: 127,
+    craftableIn: ["Baker", "Baker 2"]
   }
 ];

@@ -63,10 +63,21 @@ export function buyItem(item: BaseItem, quantity: number): BoardAction {
   });
 }
 
+function level(soldCoins: number) {
+  return Math.max(Math.floor(Math.log2(soldCoins + 1) - Math.log2(64)), 1);
+}
+
+function levelPercent(soldCoins: number) {
+  return Math.max(1, ((Math.log2(soldCoins + 1) - Math.log2(128)) % 1) * 100);
+}
+
 export function sellItem(item: BaseItem, quantity: number): BoardAction {
   return produce((draft: Board) => {
     const value = item.price.sell * quantity;
     draft.money += value;
+    draft.amountSold += value;
+    draft.level = level(draft.amountSold);
+    draft.levelPercentComplete = levelPercent(draft.amountSold);
 
     if (isMachine(item)) {
       // draft.machines;

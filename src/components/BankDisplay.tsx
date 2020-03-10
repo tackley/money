@@ -4,13 +4,12 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
-  Typography
+  Typography,
+  LinearProgress
 } from "@material-ui/core";
+import { Board } from "../board";
 
-export const BankDisplay: React.FC<{ balance: number; level: number }> = ({
-  balance,
-  level
-}) => {
+export const BankDisplay: React.FC<{ board: Board }> = ({ board }) => {
   return (
     <Card>
       <CardActionArea>
@@ -24,7 +23,7 @@ export const BankDisplay: React.FC<{ balance: number; level: number }> = ({
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             You have{" "}
-            {balance.toLocaleString("en-GB", {
+            {board.money.toLocaleString("en-GB", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
               useGrouping: true
@@ -32,8 +31,12 @@ export const BankDisplay: React.FC<{ balance: number; level: number }> = ({
             coins
           </Typography>
           <Typography gutterBottom variant="subtitle1">
-            Level {level}
+            Level {board.level}
           </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={board.levelPercentComplete}
+          />
         </CardContent>
       </CardActionArea>
     </Card>
