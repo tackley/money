@@ -55,7 +55,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container className={classes.root}>
+      <Container className={classes.root} maxWidth="xl">
         <BoardDisplay board={board} applyAction={setBoard} />
       </Container>
     </ThemeProvider>

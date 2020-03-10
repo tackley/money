@@ -131,6 +131,17 @@ function fillHoppers(board: Board) {
   });
 }
 
+function processComplete(board: Board) {
+  board.machines.forEach(m => {
+    if (m.currentRecipe && m.percentComplete >= 100) {
+      addItemsToInventoryBag(board.inventory, m.currentRecipe.output);
+      m.inHopper = [];
+      m.percentComplete = 0;
+      m.hopperFull = false;
+    }
+  });
+}
+
 function doProduction(board: Board) {
   board.machines.forEach(m => {
     if (m.hopperFull && m.currentRecipe) {
@@ -140,12 +151,7 @@ function doProduction(board: Board) {
       const ticksPerRecipe = baseDuration / multiplier;
       const percentPerTick = 100 / ticksPerRecipe;
 
-      m.percentComplete += percentPerTick;
-
-      if (m.percentComplete >= 100) {
-        addItemsToInventoryBag(board.inventory, m.currentRecipe.output);
-        m.inHopper = [];
-      }
+      m.percentComplete = Math.min(100, m.percentComplete + percentPerTick);
     }
   });
 }
@@ -157,6 +163,9 @@ export function gameTick(): BoardAction {
 
     // fill hoppers if needs be
     fillHoppers(draft);
+
+    // process completed machines
+    processComplete(draft);
 
     // produce machines
     doProduction(draft);

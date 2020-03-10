@@ -76,7 +76,7 @@ export const ShopDisplay: React.FC<Props> = ({ board, applyAction }) => {
   return (
     <Box display="flex" flexWrap="wrap">
       {items.map(i => (
-        <Box key={i.name} padding={1} minWidth="16rem">
+        <Box key={i.name} padding={1} minWidth="16rem" flex="1">
           <ShopItemDisplay
             item={i}
             balance={board.money}
