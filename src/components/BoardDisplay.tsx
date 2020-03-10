@@ -1,11 +1,11 @@
 import React, { Dispatch } from "react";
 import { Board } from "../board";
-import { Grid, Toolbar, Typography, AppBar, Button } from "@material-ui/core";
+import { Grid, Toolbar, Typography, AppBar } from "@material-ui/core";
 import { BankDisplay } from "./BankDisplay";
 import { ShopDisplay } from "./ShopDisplay";
 import { InventoryDisplay } from "./InventoryDisplay";
 import { MachineDisplay } from "./MachineDisplay";
-import { BoardAction, gameTick } from "../board/actions";
+import { BoardAction } from "../board/actions";
 
 interface BoardDisplayProps {
   board: Board;
@@ -16,18 +16,11 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
   board,
   applyAction
 }) => {
-  const moreMoney = () => {
-    applyAction(gameTick());
-  };
   return (
     <React.Fragment>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <BankDisplay board={board} />
-
-          <Button size="small" color="primary" onClick={moreMoney}>
-            Game Tick
-          </Button>
         </Grid>
         <Grid item xs={4}>
           <AppBar position="relative">
