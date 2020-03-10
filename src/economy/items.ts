@@ -128,6 +128,36 @@ const items: Item[] = [
     name: "Wheat",
     inShopFromLevel: 9,
     price: { buy: 31, sell: 1 }
+  },
+  {
+    type: "item",
+    name: "Copper Coin",
+    inShopFromLevel: 5,
+    price: { buy: 7, sell: 3 }
+  },
+  {
+    type: "item",
+    name: "Solar Panel",
+    inShopFromLevel: 7,
+    price: { buy: 511, sell: 255 }
+  },
+  {
+    type: "item",
+    name: "Battery",
+    inShopFromLevel: 6,
+    price: { buy: 383, sell: 233 }
+  },
+  {
+    type: "item",
+    name: "Simple Circit",
+    inShopFromLevel: 3,
+    price: { buy: 31, sell: 27 }
+  },
+  {
+    type: "item",
+    name: "Iron Copper Alloy",
+    inShopFromLevel: 4,
+    price: { buy: 47, sell: 31 }
   }
 ];
 

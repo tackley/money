@@ -121,5 +121,58 @@ export const recipes: Recipe[] = [
     output: [{ item: "Cake", quantity: 1 }],
     baseCraftingTime: 127,
     craftableIn: ["Baker", "Baker 2"]
+  },
+  {
+    name: "Make Coins",
+    availableFromLevel: 2,
+    input: [{ item: "Copper Plate", quantity: 2 }],
+    output: [{ item: "Copper Coin", quantity: 15 }],
+    baseCraftingTime: 11,
+    craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
+  },
+  {
+    name: "Make Batteries",
+    availableFromLevel: 2,
+    input: [
+      { item: "Copper Coin", quantity: 20 },
+      { item: "Copper Iron Alloy", quantity: 5 }
+    ],
+    output: [{ item: "Battery", quantity: 1 }],
+    baseCraftingTime: 15,
+    craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
+  },
+  {
+    name: "Make Copper Iron Alloy",
+    availableFromLevel: 1,
+    input: [
+      { item: "Copper Plate", quantity: 3 },
+      { item: "Iron Plate", quantity: 3 }
+    ],
+    output: [{ item: "Copper Iron Alloy", quantity: 4 }],
+    baseCraftingTime: 11,
+    craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
+  },
+  {
+    name: "Make Solar Panel",
+    availableFromLevel: 2,
+    input: [
+      { item: "Copper Plate", quantity: 7 },
+      { item: "Copper Iron Alloy", quantity: 3 }
+    ],
+    output: [{ item: "Solar Panel", quantity: 1 }],
+    baseCraftingTime: 23,
+    craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
+  },
+  {
+    name: "Make Simple Circit",
+    availableFromLevel: 2,
+    input: [
+      { item: "Iron Plate", quantity: 2 },
+      { item: "Copper Plate", quantity: 2 },
+      { item: "Iron Copper Alloy", quantity: 1 }
+    ],
+    output: [{ item: "Simple Circit", quantity: 11 }],
+    baseCraftingTime: 23,
+    craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
   }
 ];
