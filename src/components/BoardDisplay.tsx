@@ -25,7 +25,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
         <Grid item xs={4}>
           <AppBar position="relative">
             <Toolbar variant="dense">
-              <Typography variant="subtitle2">Your Machines</Typography>
+              <Typography variant="subtitle1">Your Machines</Typography>
             </Toolbar>
           </AppBar>
           <MachineDisplay board={board} applyAction={applyAction} />
@@ -33,7 +33,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
         <Grid item xs={4}>
           <AppBar position="relative">
             <Toolbar variant="dense">
-              <Typography variant="subtitle2">Your Inventory</Typography>
+              <Typography variant="subtitle1">Your Inventory</Typography>
             </Toolbar>
           </AppBar>
 
@@ -42,7 +42,7 @@ export const BoardDisplay: React.FC<BoardDisplayProps> = ({
         <Grid item xs={12}>
           <AppBar position="relative">
             <Toolbar variant="dense">
-              <Typography variant="subtitle2">Shop</Typography>
+              <Typography variant="subtitle1">Shop</Typography>
             </Toolbar>
           </AppBar>
 
