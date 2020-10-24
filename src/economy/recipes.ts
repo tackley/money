@@ -66,7 +66,7 @@ export const recipes: Recipe[] = [
   {
     name: "Process Uranium (2)",
     availableFromLevel: 5,
-    input: [{ item: "Uramium Ore", quantity: 127 }],
+    input: [{ item: "Uranium Ore", quantity: 127 }],
     output: [
       {
         item: "Processed Uranium",
@@ -135,20 +135,20 @@ export const recipes: Recipe[] = [
     availableFromLevel: 2,
     input: [
       { item: "Copper Coin", quantity: 20 },
-      { item: "Copper Iron Alloy", quantity: 5 }
+      { item: "Iron Copper Alloy", quantity: 5 }
     ],
     output: [{ item: "Battery", quantity: 1 }],
     baseCraftingTime: 15,
     craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
   },
   {
-    name: "Make Copper Iron Alloy",
+    name: "Make Iron Copper Alloy",
     availableFromLevel: 1,
     input: [
       { item: "Copper Plate", quantity: 3 },
       { item: "Iron Plate", quantity: 3 }
     ],
-    output: [{ item: "Copper Iron Alloy", quantity: 4 }],
+    output: [{ item: "Iron Copper Alloy", quantity: 4 }],
     baseCraftingTime: 11,
     craftableIn: ["Maker", "Maker 2", "Maker 3", "Maker 4"]
   },
@@ -157,7 +157,7 @@ export const recipes: Recipe[] = [
     availableFromLevel: 2,
     input: [
       { item: "Copper Plate", quantity: 7 },
-      { item: "Copper Iron Alloy", quantity: 3 }
+      { item: "Iron Copper Alloy", quantity: 3 }
     ],
     output: [{ item: "Solar Panel", quantity: 1 }],
     baseCraftingTime: 23,

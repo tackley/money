@@ -28,7 +28,7 @@ export function isMachine(i: BaseItem): i is Machine {
   return i.type === "machine";
 }
 
-const items: Item[] = [
+export const items: Item[] = [
   {
     type: "item",
     name: "Iron Ore",
@@ -95,7 +95,7 @@ const items: Item[] = [
   },
   {
     type: "item",
-    name: "Prossesed Uranium",
+    name: "Processed Uranium",
     inShopFromLevel: 7,
     price: { buy: 547, sell: 255 }
   },
@@ -161,7 +161,7 @@ const items: Item[] = [
   }
 ];
 
-const machines: Machine[] = [
+export const machines: Machine[] = [
   {
     type: "machine",
     name: "Furnace",
