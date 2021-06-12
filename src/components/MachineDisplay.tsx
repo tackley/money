@@ -10,7 +10,7 @@ import {
   makeStyles,
   createStyles,
   LinearProgress,
-  Box
+  Box,
 } from "@material-ui/core";
 import { BoardAction } from "../board/actions";
 import { getPossibleRecipes } from "../economy/utils";
@@ -31,21 +31,21 @@ interface DropDownProps {
 const useStyles = makeStyles(() =>
   createStyles({
     formControl: {
-      width: "100%"
-    }
+      width: "100%",
+    },
   })
 );
 
 export const RecipeDropDown: React.FC<DropDownProps> = ({
   recipes,
   selected,
-  onChange
+  onChange,
 }) => {
   const classes = useStyles();
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     const name = event.target.value;
-    const recipe = recipes.find(r => r.name === name);
+    const recipe = recipes.find((r) => r.name === name);
     onChange(recipe);
   };
 
@@ -56,7 +56,7 @@ export const RecipeDropDown: React.FC<DropDownProps> = ({
         <MenuItem value="">
           <em>Idle</em>
         </MenuItem>
-        {recipes.map(r => (
+        {recipes.map((r) => (
           <MenuItem key={r.name} value={r.name}>
             {r.name}
           </MenuItem>

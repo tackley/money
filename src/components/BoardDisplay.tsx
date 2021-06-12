@@ -14,7 +14,7 @@ interface BoardDisplayProps {
 
 export const BoardDisplay: React.FC<BoardDisplayProps> = ({
   board,
-  applyAction
+  applyAction,
 }) => {
   return (
     <React.Fragment>

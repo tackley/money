@@ -32,6 +32,6 @@ export function createNewBoard(): Board {
     money: 100,
     inventory: [],
     machines: [],
-    amountSold: 0
+    amountSold: 0,
   };
 }

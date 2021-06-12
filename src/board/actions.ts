@@ -10,7 +10,7 @@ function addItemToInventoryBag(
   inventoryItem: InventoryItem
 ) {
   // if there's an entry for this item in inventory, update the quantity. Otherwise add a new entry.
-  const existingInventory = bag.find(i => i.item === inventoryItem.item);
+  const existingInventory = bag.find((i) => i.item === inventoryItem.item);
   if (existingInventory) {
     existingInventory.quantity += inventoryItem.quantity;
   } else {
@@ -22,11 +22,11 @@ function addItemsToInventoryBag(
   bag: InventoryItemBag,
   inventoryItems: InventoryItem[]
 ) {
-  inventoryItems.forEach(i => addItemToInventoryBag(bag, i));
+  inventoryItems.forEach((i) => addItemToInventoryBag(bag, i));
 }
 
 function getCountForItem(bag: InventoryItemBag, item: string): number {
-  const existingInventory = bag.find(i => i.item === item);
+  const existingInventory = bag.find((i) => i.item === item);
 
   return existingInventory?.quantity ?? 0;
 }
@@ -35,7 +35,7 @@ function removeFromInventoryBag(
   bag: InventoryItemBag,
   inventoryItem: InventoryItem
 ): InventoryItem | undefined {
-  const existingInventory = bag.find(i => i.item === inventoryItem.item);
+  const existingInventory = bag.find((i) => i.item === inventoryItem.item);
 
   if (!existingInventory || existingInventory.quantity < inventoryItem.quantity)
     return undefined;
@@ -55,7 +55,7 @@ export function buyItem(item: BaseItem, quantity: number): BoardAction {
         inHopper: [],
         machine: item,
         percentComplete: 0,
-        hopperFull: false
+        hopperFull: false,
       });
     } else {
       addItemToInventoryBag(draft.inventory, { item: item.name, quantity });
@@ -95,13 +95,13 @@ export function addMoreMoney(amount: number): BoardAction {
 }
 
 function fillHoppers(board: Board) {
-  board.machines.forEach(m => {
+  board.machines.forEach((m) => {
     const inputs: InventoryItemBag = m.currentRecipe?.input ?? [];
 
     let hasAllInputs = true;
 
     // first iterate through what we have in inputs
-    inputs.forEach(ii => {
+    inputs.forEach((ii) => {
       const h = getCountForItem(m.inHopper, ii.item);
       const r = ii.quantity;
       const req = r - h;
@@ -121,10 +121,10 @@ function fillHoppers(board: Board) {
     m.hopperFull = hasAllInputs;
 
     // and now remove any extras unneeded items
-    const neededItems = inputs.map(i => i.item);
-    const extraItems = m.inHopper.filter(h => !neededItems.includes(h.item));
+    const neededItems = inputs.map((i) => i.item);
+    const extraItems = m.inHopper.filter((h) => !neededItems.includes(h.item));
 
-    extraItems.forEach(ii => {
+    extraItems.forEach((ii) => {
       addItemToInventoryBag(board.inventory, { ...ii });
       ii.quantity = 0;
     });
@@ -132,7 +132,7 @@ function fillHoppers(board: Board) {
 }
 
 function processComplete(board: Board) {
-  board.machines.forEach(m => {
+  board.machines.forEach((m) => {
     if (m.currentRecipe && m.percentComplete >= 100) {
       addItemsToInventoryBag(board.inventory, m.currentRecipe.output);
       m.inHopper = [];
@@ -143,7 +143,7 @@ function processComplete(board: Board) {
 }
 
 function doProduction(board: Board) {
-  board.machines.forEach(m => {
+  board.machines.forEach((m) => {
     if (m.hopperFull && m.currentRecipe) {
       const baseDuration = m.currentRecipe.baseCraftingTime;
       const multiplier = m.machine.craftingSpeedMultiplier;
