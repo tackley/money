@@ -5,7 +5,7 @@ import {
   ListItem,
   ListItemText,
   Button,
-  ListItemSecondaryAction
+  ListItemSecondaryAction,
 } from "@material-ui/core";
 import { BoardAction, sellItem } from "../board/actions";
 import { findItemByName } from "../economy/items";
@@ -18,8 +18,8 @@ interface Props {
 export const InventoryDisplay: React.FC<Props> = ({ board, applyAction }) => (
   <List>
     {board.inventory
-      .filter(i => i.quantity > 0)
-      .map(i => {
+      .filter((i) => i.quantity > 0)
+      .map((i) => {
         const item = findItemByName(i.item);
         return (
           <ListItem key={i.item} button>

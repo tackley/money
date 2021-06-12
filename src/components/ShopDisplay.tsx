@@ -8,7 +8,7 @@ import {
   Box,
   Avatar,
   makeStyles,
-  createStyles
+  createStyles,
 } from "@material-ui/core";
 import { buyItem, BoardAction } from "../board/actions";
 import clsx from "clsx";
@@ -25,24 +25,24 @@ type ItemDisplayProps = {
   applyAction: Dispatch<BoardAction>;
 };
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      paddingTop: theme.spacing(1)
+      paddingTop: theme.spacing(1),
     },
     caption: {
-      lineHeight: "normal"
+      lineHeight: "normal",
     },
     disabled: {
-      backgroundColor: grey[900]
-    }
+      backgroundColor: grey[900],
+    },
   })
 );
 
 const ShopItemDisplay: React.FC<ItemDisplayProps> = ({
   item,
   balance,
-  applyAction
+  applyAction,
 }) => {
   const classes = useStyles();
   const disabled = item.price.buy > balance;
@@ -75,7 +75,7 @@ export const ShopDisplay: React.FC<Props> = ({ board, applyAction }) => {
 
   return (
     <Box display="flex" flexWrap="wrap">
-      {items.map(i => (
+      {items.map((i) => (
         <Box key={i.name} padding={1} minWidth="16rem" flex="1">
           <ShopItemDisplay
             item={i}

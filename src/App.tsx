@@ -7,7 +7,7 @@ import {
   Container,
   createStyles,
   makeStyles,
-  Theme
+  Theme,
 } from "@material-ui/core";
 import { Board, createNewBoard } from "./board";
 import { BoardDisplay } from "./components/BoardDisplay";
@@ -18,15 +18,15 @@ const theme = createMuiTheme({
   palette: {
     type: "dark",
     primary: pink,
-    secondary: grey
-  }
+    secondary: grey,
+  },
 });
 
 const useStyles = makeStyles(({ palette, spacing }: Theme) =>
   createStyles({
     root: {
-      marginTop: spacing(1)
-    }
+      marginTop: spacing(1),
+    },
   })
 );
 
