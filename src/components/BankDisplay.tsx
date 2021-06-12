@@ -5,7 +5,7 @@ import {
   CardMedia,
   CardContent,
   Typography,
-  LinearProgress,
+  LinearProgress
 } from "@material-ui/core";
 import { Board } from "../board";
 
@@ -17,7 +17,7 @@ export const BankDisplay: React.FC<{ board: Board }> = ({ board }) => {
           component="img"
           alt="Bank"
           height="200"
-          image={require("../images/640px-FirstBankofUS00_crop.jpg")}
+          image={require("../images/640px-FirstBankofUS00_crop.jpg").default}
           title="Bank"
         />
         <CardContent>
@@ -26,7 +26,7 @@ export const BankDisplay: React.FC<{ board: Board }> = ({ board }) => {
             {board.money.toLocaleString("en-GB", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
-              useGrouping: true,
+              useGrouping: true
             })}{" "}
             coins
           </Typography>
